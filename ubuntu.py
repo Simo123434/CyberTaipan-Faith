@@ -14,6 +14,9 @@ def update():
     os.system("sudo apt-get update > /dev/null && sudo apt-get upgrade -y > /dev/null")
 
 
+# check if firewall is installed and if not install it and turn it on
+def ufw_check():
+    if os.popen("sudo ufw status").read() == 'Status: '
 
 # Main Function
 def main():
