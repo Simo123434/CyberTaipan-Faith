@@ -27,7 +27,7 @@ def ufw_check():
 def unauthorised_files(ext):
     print("Removing unautorised files")
     for i in ext:
-        print(i)
+        os.popen("sudo find / -name *." + i)
         
     
     
@@ -37,7 +37,7 @@ def main():
     check_root()
     update()
     ufw_check()
-    disallowedExt = input("What are the disallowed file extensions? (seperate by comma e.g. mp3,mp4)")
+    disallowedExt = input("What are the disallowed file extensions? (seperate by comma e.g. mp3,mp4)\nfile extension: ")
     notallowedExt = []
     notallowedExt = disallowedExt.split(",")
     unauthorised_files(notallowedExt)
