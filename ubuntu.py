@@ -40,6 +40,7 @@ def main():
     disallowedExt = input("What are the disallowed file extensions? (seperate by comma e.g. mp3,mp4)")
     notallowedExt = []
     notallowedExt = disallowedExt.split(",")
+    unauthorised_files(notallowedExt)
     
 
 
