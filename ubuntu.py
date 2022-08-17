@@ -16,7 +16,14 @@ def update():
 
 # check if firewall is installed and if not install it and turn it on
 def ufw_check():
-    if os.popen("sudo ufw status").read() == 'Status: '
+    if os.popen("sudo ufw status").read() == 'Status: inactive':
+        os.popen("sudo ufw enable")
+        print("Firewall started")
+    else:
+        print("Firewall already active")
+        
+    
+    
 
 # Main Function
 def main():
