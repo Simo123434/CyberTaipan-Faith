@@ -11,25 +11,36 @@ def check_root():
 
 # Run update to ensure everything is updated
 def update():
+    print("Performing system update")
     os.system("sudo apt-get update > /dev/null && sudo apt-get upgrade -y > /dev/null")
 
 
 # check if firewall is installed and if not install it and turn it on
 def ufw_check():
+    print("Checking if the firewall is enabled")
     if os.popen("sudo ufw status").read() == 'Status: inactive':
-        os.popen("sudo ufw enable")
+        os.popen("sudo ufw enable > /dev/null")
         print("Firewall started")
     else:
         print("Firewall already active")
+        
+def unauthorised_files(ext):
+    print("Removing unautorised files")
+    for i in ext:
+        print(i)
         
     
     
 
 # Main Function
 def main():
-    print("Script started")
     check_root()
     update()
+    ufw_check()
+    disallowedExt = input("What are the disallowed file extensions? (seperate by comma e.g. mp3,mp4)")
+    notallowedExt = []
+    notallowedExt = disallowedExt.split(",")
+    
 
 
 if __name__ == "__main__":
