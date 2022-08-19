@@ -1,5 +1,7 @@
 # Imports
 import os
+import pwd
+
 
 # Check that script running as root
 def check_root():
@@ -35,8 +37,19 @@ def unauthorised_files():
         
     
 def checkUsers():
+    # listOfUsers = input("Enter list of authorised users (seperate by comma)")
+    # userList = []
+    # userList = listOfUsers.split(",")
+    # authUser = []
+    # unAuth = []
+    # currUsers = []
     print("Listing all users, please check readme to see which users are not allowed\n")
-    os.system("sudo getent passwd |cut -d: -f1")
+    currUsers = os.system("sudo getent passwd |cut -d: -f1")
+    # for p in pwd.getpwall():
+    #     currUsers.append(p[0])
+    # print(currUsers)
+    
+    
     
 
 
